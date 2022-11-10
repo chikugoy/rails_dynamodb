@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  rails_dynamodb_db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  rails_dynamodb_web:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - rails_dynamodb_db
+  rails_dynamodb:
+    image: deangiberson/aws-dynamodb-local
+    ports:
+      - 8001:8000
+    environment:
+      DEFAULT_REGION: ap-northeast-1
