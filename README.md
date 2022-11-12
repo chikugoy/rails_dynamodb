@@ -29,7 +29,7 @@ docker-compose up -d
 ### Rspec execute
 
 ```shell
-docker exec -it rails_dynamodb_web_1 bash
+docker exec -it rails_dynamodb_rails_dynamodb_web_1 bash
 bundle exec rspec
 ```
 
