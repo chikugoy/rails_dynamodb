@@ -77,3 +77,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'aws-sdk', '~> 3.0'
+gem 'dynamoid', '~> 3'
