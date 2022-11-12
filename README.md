@@ -17,8 +17,8 @@ Rack version              2.2.4
 
 ```shell
 docker-compose build
-docker-compose run web rails db:create
-docker-compose run web rake db:migrate
+docker-compose run rails_dynamodb_web rails db:create
+docker-compose run rails_dynamodb_web rake db:migrate
 docker-compose up -d
 ```
 
@@ -29,7 +29,7 @@ docker-compose up -d
 ### Rspec execute
 
 ```shell
-docker exec -it regex_web_1 bash
+docker exec -it rails_dynamodb_web_1 bash
 bundle exec rspec
 ```
 
